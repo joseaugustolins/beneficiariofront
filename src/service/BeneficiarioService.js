@@ -10,5 +10,15 @@ const BeneficiarioService = () => {
         return await axios.get(`${process.env.REACT_APP_URL_BENEFICIARIO}/${id}`)
     }
 
-    return {findAll, findById}
+    const save = async(data) => {
+        return await axios.post(`${process.env.REACT_APP_URL_BENEFICIARIO}`, data)
+    }
+
+    const aportar = async(data) => {
+        return await axios.post(`${process.env.REACT_APP_URL_CAIXA_APORTE}`, data);
+    }
+
+    return {findAll, findById, save, aportar}
 }
+
+export default BeneficiarioService;
